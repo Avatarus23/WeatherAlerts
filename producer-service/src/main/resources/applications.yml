@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: weather-producer-service
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: weather
+    password: weather123
+
+weather:
+  rabbitmq:
+    exchange: readings.topic
+  pulseeco:
+    base-url: https://skopje.pulse.eco
