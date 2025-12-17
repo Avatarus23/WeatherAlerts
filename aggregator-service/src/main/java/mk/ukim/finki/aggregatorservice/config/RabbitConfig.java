@@ -7,17 +7,21 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * RabbitMQ config for aggregator.
- * Declares:
- *  - readings.topic exchange (for input)
- *  - alerts.topic exchange (for output)
- *  - agg.Skopje queue bound to reading.Skopje.*
+ *
+ * Input:
+ *  - Exchange: readings.topic
+ *  - Queue:    agg.readings
+ *  - Binding:  reading.#
+ *
+ * Output:
+ *  - Exchange: alerts.topic
  */
 @Configuration
 public class RabbitConfig {
 
     public static final String READINGS_EXCHANGE = "readings.topic";
     public static final String ALERTS_EXCHANGE   = "alerts.topic";
-    public static final String AGG_QUEUE         = "agg.Skopje";
+    public static final String AGG_QUEUE         = "agg.readings";
 
     @Bean
     public TopicExchange readingsExchange() {
@@ -30,16 +34,16 @@ public class RabbitConfig {
     }
 
     @Bean
-    public Queue aggSkopjeQueue() {
+    public Queue aggQueue() {
         return new Queue(AGG_QUEUE, true);
     }
 
     @Bean
-    public Binding aggSkopjeBinding(Queue aggSkopjeQueue, TopicExchange readingsExchange) {
-        // Receive all readings for city Skopje (any signal)
-        return BindingBuilder.bind(aggSkopjeQueue)
+    public Binding aggBinding(Queue aggQueue, TopicExchange readingsExchange) {
+        // Receive all readings for all areas/metrics
+        return BindingBuilder.bind(aggQueue)
                 .to(readingsExchange)
-                .with("reading.Skopje.*");
+                .with("reading.#");
     }
 
     @Bean
