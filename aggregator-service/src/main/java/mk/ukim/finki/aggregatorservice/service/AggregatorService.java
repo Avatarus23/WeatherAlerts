@@ -30,49 +30,58 @@ public class AggregatorService {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void process(String area, String metric, ReadingMessage reading) {
-        if (area == null || area.isBlank()) area = "unknown";
-        if (metric == null || metric.isBlank()) metric = "unknown";
+// add this field at the top of the class (under windows map)
+private final Map<String, String> lastLevelByKey = new HashMap<>();
 
-        String key = area + "|" + metric;
+public void process(String area, String metric, ReadingMessage reading) {
+    if (area == null || area.isBlank()) area = "unknown";
+    if (metric == null || metric.isBlank()) metric = "unknown";
 
-        Deque<Double> window = windows.computeIfAbsent(key, k -> new ArrayDeque<>());
-        window.addLast(reading.getValue());
-        while (window.size() > WINDOW_SIZE) window.removeFirst();
+    String key = area + "|" + metric;
 
-        double avg = window.stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
+    Deque<Double> window = windows.computeIfAbsent(key, k -> new ArrayDeque<>());
+    window.addLast(reading.getValue());
+    while (window.size() > WINDOW_SIZE) window.removeFirst();
 
-        String level;
-        double threshold;
+    double avg = window.stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
 
-        if (avg < 25) {
-            level = "GREEN";
-            threshold = 25;
-        } else if (avg < 75) {
-            level = "YELLOW";
-            threshold = 75;
-        } else {
-            level = "RED";
-            threshold = 75;
-        }
+    // ✅ Your requirement: pm10 limit => red else green
+    // You can later extend to pm25/uv/etc.
+    String level;
+    double threshold;
 
-        if (!"GREEN".equals(level)) {
-            AlertMessage alert = new AlertMessage();
-            alert.setArea(area);
-            alert.setMetric(metric);
-            alert.setLevel(level);
-            alert.setValue(avg);
-            alert.setThreshold(threshold);
-            alert.setTimestamp(Instant.now());
-            alert.setReason("Average " + metric + " over last " + window.size() + " readings = " + avg);
-
-            String routingKey = "alert." + area + "." + level;
-
-            rabbitTemplate.convertAndSend(RabbitConfig.ALERTS_EXCHANGE, routingKey, alert);
-
-            System.out.println("[AGGREGATOR] Sent alert: routingKey=" + routingKey + " avg=" + avg);
-        } else {
-            System.out.println("[AGGREGATOR] GREEN: area=" + area + " metric=" + metric + " avg=" + avg);
-        }
+    if ("pm10".equalsIgnoreCase(metric)) {
+        threshold = 50.0;
+        level = (avg > threshold) ? "RED" : "GREEN";
+    } else {
+        // default behavior for other metrics (keep it simple)
+        threshold = 0.0;
+        level = "GREEN";
     }
+
+    String last = lastLevelByKey.get(key);
+
+    // ✅ publish only when state changes (including back to GREEN)
+    if (last == null || !last.equals(level)) {
+        lastLevelByKey.put(key, level);
+
+        AlertMessage alert = new AlertMessage();
+        alert.setArea(area);
+        alert.setMetric(metric);
+        alert.setLevel(level);
+        alert.setValue(avg);
+        alert.setThreshold(threshold);
+        alert.setTimestamp(Instant.now());
+        alert.setReason("Avg " + metric + " over last " + window.size() + " readings = " + avg);
+
+        String routingKey = "alert." + area + "." + level;
+
+        rabbitTemplate.convertAndSend(RabbitConfig.ALERTS_EXCHANGE, routingKey, alert);
+
+        System.out.println("[AGGREGATOR] Sent alert: routingKey=" + routingKey + " level=" + level + " avg=" + avg);
+    } else {
+        System.out.println("[AGGREGATOR] No change: area=" + area + " metric=" + metric + " level=" + level + " avg=" + avg);
+    }
+}
+
 }

@@ -37,4 +37,20 @@ public class AlertMessage {
 
     public String getReason() { return reason; }
     public void setReason(String reason) { this.reason = reason; }
+// Convenience fields for frontend (Flutter)
+
+public String getAreaKey() {
+    if (area == null) return "unknown";
+    return area.toLowerCase().replace(" ", "_");
+}
+
+public boolean isAlarm() {
+    return level != null && !"GREEN".equalsIgnoreCase(level);
+}
+
+// Flutter-friendly: if metric is pm10, expose value as pm10
+public Double getPm10() {
+    if (metric != null && metric.equalsIgnoreCase("pm10")) return value;
+    return null;
+}
 }

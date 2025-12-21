@@ -23,14 +23,18 @@ public class AlertForwarder {
 
     @RabbitListener(queues = RabbitConfig.GW_ALERTS_QUEUE)
     public void onAlert(AlertMessage alert) {
-        String area = alert.getArea();
-        if (area == null || area.isBlank()) area = "unknown";
+    String area = alert.getArea();
+    if (area == null || area.isBlank()) area = "unknown";
 
-        String areaKey = area.toLowerCase().replace(" ", "_");
+    String areaKey = area.toLowerCase().replace(" ", "_");
 
-        String destination = "/topic/alerts/" + areaKey;
-        messagingTemplate.convertAndSend(destination, alert);
+    String destinationArea = "/topic/alerts/" + areaKey;
+    String destinationAll  = "/topic/alerts/all";
 
-        System.out.println("[GATEWAY] Forwarded alert to " + destination + ": " + alert.getLevel());
-    }
+    messagingTemplate.convertAndSend(destinationArea, alert);
+    messagingTemplate.convertAndSend(destinationAll, alert);
+
+    System.out.println("[GATEWAY] Forwarded alert to " + destinationArea + " and " + destinationAll +
+            ": " + alert.getLevel());
+}
 }

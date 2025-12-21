@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
-import 'skopje_live_demo.dart';
+import 'pages/map_page.dart';
 
 void main() {
-  runApp(
-    const MaterialApp(
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: const MapPage(),
       debugShowCheckedModeBanner: false,
-      home: SkopjeMapLivePage(),
-    ),
-  );
+    );
+  }
 }
