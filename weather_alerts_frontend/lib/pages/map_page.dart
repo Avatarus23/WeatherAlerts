@@ -15,11 +15,8 @@ class MapPage extends StatefulWidget {
 }
 
 class _MapPageState extends State<MapPage> {
-  // --- CHANGE THIS IF NEEDED ---
-  // If your gateway uses `registerStompEndpoints().addEndpoint("/ws").withSockJS()`
-  // then set useSockJS = true.
-  // If it uses only addEndpoint("/ws") (NO withSockJS), set useSockJS = false.
-  final bool useSockJS = false;
+  // If your gateway uses `.withSockJS()` -> true, otherwise false.
+  final bool useSockJS = true;
 
   // Gateway base (Flutter Web runs in browser, so "localhost" means your PC)
   final String gatewayHttpBase = 'http://localhost:8081';
@@ -28,8 +25,22 @@ class _MapPageState extends State<MapPage> {
   StompClient? _stomp;
   bool _connected = false;
 
-  // areaKey -> "GREEN"/"RED"/...
-  final Map<String, String> _currentLevelByArea = {};
+  // ----------------------------
+  // Metric selection
+  // ----------------------------
+  final List<String> _metrics = const [
+    'pm10',
+    'pm25',
+    'temperature',
+    'humidity',
+    'pressure',
+    'noise_dba',
+  ];
+
+  String _selectedMetric = 'pm10';
+
+  // metric -> (areaKey -> level)
+  final Map<String, Map<String, String>> _levelByAreaByMetric = {};
 
   // GeoJSON polygons (areaKey -> polygon points)
   final Map<String, List<LatLng>> _areaPolygons = {};
@@ -38,6 +49,12 @@ class _MapPageState extends State<MapPage> {
   @override
   void initState() {
     super.initState();
+
+    // init metric maps
+    for (final m in _metrics) {
+      _levelByAreaByMetric[m] = {};
+    }
+
     _loadGeoJson();
     _connectStomp();
   }
@@ -49,12 +66,45 @@ class _MapPageState extends State<MapPage> {
   }
 
   // ----------------------------
+  // KEY NORMALIZATION (GeoJSON -> backend key)
+  // ----------------------------
+  String _canonicalAreaKey(String input) {
+    var s = input.trim();
+
+    // GeoJSON uses "Општина X"
+    s = s.replaceAll('Општина', '').trim();
+
+    // normalize spaces
+    s = s.replaceAll(RegExp(r'\s+'), ' ');
+
+    // Map Cyrillic municipality names -> backend keys
+    const map = {
+      'Аеродром': 'aerodrom',
+      'Бутел': 'butel',
+      'Гази Баба': 'gazi_baba',
+      'Ѓорче Петров': 'gjorce_petrov',
+      'Карпош': 'karposh',
+      'Кисела Вода': 'kisela_voda',
+      'Сарај': 'saraj',
+      'Центар': 'centar',
+      'Чаир': 'cair',
+      'Шуто Оризари': 'suto_orizari',
+    };
+
+    if (map.containsKey(s)) return map[s]!;
+
+    final lower = s.toLowerCase();
+    if (map.values.contains(lower)) return lower;
+
+    return lower.replaceAll(' ', '_');
+  }
+
+  // ----------------------------
   // STOMP
   // ----------------------------
   void _connectStomp() {
-    final String wsEndpoint = useSockJS
-        ? '$gatewayHttpBase/ws' // SockJS uses http(s) URL
-        : '$gatewayWsBase/ws';  // pure websocket uses ws(s) URL
+    final String wsEndpoint =
+        useSockJS ? '$gatewayHttpBase/ws' : '$gatewayWsBase/ws';
 
     _stomp = StompClient(
       config: useSockJS
@@ -64,8 +114,6 @@ class _MapPageState extends State<MapPage> {
               onStompError: (f) => _log('STOMP error: ${f.body}'),
               onWebSocketError: (e) => _log('WS error: $e'),
               onDisconnect: (_) => _setConnected(false),
-              stompConnectHeaders: const {},
-              webSocketConnectHeaders: const {},
               heartbeatIncoming: const Duration(seconds: 10),
               heartbeatOutgoing: const Duration(seconds: 10),
             )
@@ -75,8 +123,6 @@ class _MapPageState extends State<MapPage> {
               onStompError: (f) => _log('STOMP error: ${f.body}'),
               onWebSocketError: (e) => _log('WS error: $e'),
               onDisconnect: (_) => _setConnected(false),
-              stompConnectHeaders: const {},
-              webSocketConnectHeaders: const {},
               heartbeatIncoming: const Duration(seconds: 10),
               heartbeatOutgoing: const Duration(seconds: 10),
             ),
@@ -89,50 +135,82 @@ class _MapPageState extends State<MapPage> {
     _setConnected(true);
     _log('STOMP connected');
 
-    // 1) easiest demo: subscribe to ALL alerts
-    _stomp!.subscribe(
-      destination: '/topic/alerts/all',
-      callback: (msg) => _handleAlertMessage(msg.body),
-    );
+    const areas = [
+      'aerodrom',
+      'butel',
+      'gazi_baba',
+      'gjorce_petrov',
+      'karposh',
+      'kisela_voda',
+      'saraj',
+      'centar',
+      'cair',
+      'suto_orizari',
+    ];
 
-    // 2) optional: if you want per-area topics, you can subscribe dynamically later too
-    // Example:
-    // _stomp!.subscribe(destination: '/topic/alerts/centar', callback: (msg) => _handleAlertMessage(msg.body));
+    for (final area in areas) {
+      _stomp!.subscribe(
+        destination: '/topic/alerts/$area',
+        callback: (frame) {
+          _handleAlertMessage(frame.body);
+        },
+      );
+    }
+
+    // Optional debug:
+    // _stomp!.subscribe(
+    //   destination: '/topic/alerts/all',
+    //   callback: (frame) => _log('RAW FRAME (all): ${frame.body}'),
+    // );
   }
 
   void _setConnected(bool value) {
-    if (mounted) {
-      setState(() => _connected = value);
-    } else {
+    if (!mounted) {
       _connected = value;
+      return;
     }
+    setState(() => _connected = value);
   }
 
+  // ----------------------------
+  // Alert handling
+  // ----------------------------
   void _handleAlertMessage(String? body) {
     if (body == null || body.isEmpty) return;
 
     try {
       final Map<String, dynamic> jsonMap = jsonDecode(body);
 
-      // Gateway forwards AlertMessage with fields like: area, level, avg, metric...
       final String areaRaw = (jsonMap['area'] ?? 'unknown_area').toString();
+      final String metric = (jsonMap['metric'] ?? '').toString();
       final String level = (jsonMap['level'] ?? 'GREEN').toString();
 
-      final String areaKey = areaRaw.toLowerCase().replaceAll(' ', '_');
+      final String areaKey = _canonicalAreaKey(areaRaw);
 
-      _log('ALERT: area=$areaKey level=$level');
+      // ignore unknowns (optional, but recommended)
+      if (areaKey == 'unknown_area') return;
 
-      setState(() {
-        _currentLevelByArea[areaKey] = level;
-      });
+      // If new metric appears (future-proof), accept it and allow dropdown later
+      if (!_levelByAreaByMetric.containsKey(metric)) {
+        _levelByAreaByMetric[metric] = {};
+        if (!_metrics.contains(metric)) {
+          // we won't mutate const list; instead just log it
+          _log('New metric received (not in dropdown yet): $metric');
+        }
+      }
+
+      _levelByAreaByMetric[metric]![areaKey] = level;
+
+      // Only redraw if it affects current selected metric
+      if (metric == _selectedMetric && mounted) {
+        setState(() {});
+      }
     } catch (e) {
       _log('Failed to parse alert JSON: $e | body=$body');
     }
   }
 
   void _log(String s) {
-    // For Flutter Web, this shows in browser DevTools console.
-    // Also shows in VS Code debug console sometimes.
     debugPrint(s);
     if (kIsWeb) {
       // ignore: avoid_print
@@ -145,12 +223,11 @@ class _MapPageState extends State<MapPage> {
   // ----------------------------
   Future<void> _loadGeoJson() async {
     try {
-      final String text =
-          await rootBundle.loadString('assets/geo/skopje_municipalities_admin7.geojson');
+      final String text = await rootBundle
+          .loadString('assets/geo/skopje_municipalities_admin7.geojson');
       final Map<String, dynamic> geo = jsonDecode(text);
 
       final List features = (geo['features'] as List?) ?? [];
-
       final Map<String, List<LatLng>> temp = {};
 
       for (final f in features) {
@@ -159,7 +236,6 @@ class _MapPageState extends State<MapPage> {
         final type = (geom['type'] ?? '').toString();
         final coords = geom['coordinates'];
 
-        // Try common property names
         final name = (props['name'] ??
                 props['NAME'] ??
                 props['municipality'] ??
@@ -168,27 +244,28 @@ class _MapPageState extends State<MapPage> {
                 'unknown_area')
             .toString();
 
-        final areaKey = name.toLowerCase().replaceAll(' ', '_');
+        final areaKey = _canonicalAreaKey(name);
 
-        // We’ll take the OUTER ring only for demo (works fine visually)
+        // Outer ring only (demo)
         List polyCoords;
-
         if (type == 'Polygon') {
-          // Polygon: [ [ [lon,lat], ... ] , [hole] ... ]
           polyCoords = (coords as List)[0];
         } else if (type == 'MultiPolygon') {
-          // MultiPolygon: [ [ [ [lon,lat],... ] ] , ... ]
           polyCoords = (coords as List)[0][0];
         } else {
           continue;
         }
 
         final points = polyCoords
-            .map<LatLng>((c) => LatLng((c[1] as num).toDouble(), (c[0] as num).toDouble()))
+            .map<LatLng>((c) => LatLng(
+                  (c[1] as num).toDouble(),
+                  (c[0] as num).toDouble(),
+                ))
             .toList();
 
         if (points.isNotEmpty) {
           temp[areaKey] = points;
+          _log('GEO area="$name" -> key="$areaKey"');
         }
       }
 
@@ -208,11 +285,14 @@ class _MapPageState extends State<MapPage> {
   // ----------------------------
   // UI helpers
   // ----------------------------
+  String? _levelForAreaSelectedMetric(String areaKey) {
+    return _levelByAreaByMetric[_selectedMetric]?[areaKey];
+  }
+
   Color _fillForArea(String areaKey) {
-    final level = _currentLevelByArea[areaKey];
+    final level = _levelForAreaSelectedMetric(areaKey);
 
     if (level == null) {
-      // neutral (still visible!)
       return Colors.blueGrey.withOpacity(0.18);
     }
 
@@ -229,7 +309,7 @@ class _MapPageState extends State<MapPage> {
   }
 
   Color _borderForArea(String areaKey) {
-    final level = _currentLevelByArea[areaKey];
+    final level = _levelForAreaSelectedMetric(areaKey);
     if (level == null) return Colors.black.withOpacity(0.75);
 
     switch (level.toUpperCase()) {
@@ -259,13 +339,19 @@ class _MapPageState extends State<MapPage> {
     }).toList();
   }
 
+  int _areasWithStatusSelectedMetric() {
+    final m = _levelByAreaByMetric[_selectedMetric];
+    if (m == null) return 0;
+    return m.length;
+  }
+
   @override
   Widget build(BuildContext context) {
     final polygons = _geoLoaded ? _buildPolygons() : <Polygon>[];
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Skopje Live Alerts Map'),
+        title: Text('Skopje Live Alerts Map (${_selectedMetric.toUpperCase()})'),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -295,13 +381,43 @@ class _MapPageState extends State<MapPage> {
             userAgentPackageName: 'mk.ukim.finki.weather_alerts_frontend',
           ),
 
-          // Polygons ABOVE tiles (so fill is visible)
-          if (_geoLoaded)
-            PolygonLayer(
-              polygons: polygons,
-            ),
+          if (_geoLoaded) PolygonLayer(polygons: polygons),
 
-          // Small legend / debug overlay
+          // Metric dropdown (top-left)
+          Positioned(
+            left: 12,
+            top: 12,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.92),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.black12),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text('Metric: ', style: TextStyle(fontSize: 12)),
+                  DropdownButton<String>(
+                    value: _selectedMetric,
+                    underline: const SizedBox.shrink(),
+                    items: _metrics
+                        .map((m) => DropdownMenuItem(
+                              value: m,
+                              child: Text(m, style: const TextStyle(fontSize: 12)),
+                            ))
+                        .toList(),
+                    onChanged: (v) {
+                      if (v == null) return;
+                      setState(() => _selectedMetric = v);
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          // Legend / stats (top-right)
           Positioned(
             right: 12,
             top: 12,
@@ -324,7 +440,9 @@ class _MapPageState extends State<MapPage> {
                     _legendRow(Colors.red.withOpacity(0.35), 'RED'),
                     _legendRow(Colors.blueGrey.withOpacity(0.18), 'No data yet'),
                     const SizedBox(height: 8),
-                    Text('Areas with status: ${_currentLevelByArea.length}'),
+                    Text('Selected metric: $_selectedMetric'),
+                    Text('Areas with status: ${_areasWithStatusSelectedMetric()}'),
+                    Text('Polygons loaded: ${_areaPolygons.length}'),
                   ],
                 ),
               ),
