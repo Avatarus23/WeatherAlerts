@@ -1,0 +1,1233 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/Users/bobi/.m2/wrapper/dists/apache-maven-3.9.11/a2d47e15/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< mk.ukim.finki:aggregator-service >------------------
+[INFO] Building aggregator-service 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.3.6:run (default-cli) > test-compile @ aggregator-service >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ aggregator-service ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ aggregator-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ aggregator-service ---
+[INFO] skip non existing resourceDirectory /Users/bobi/Home/Finki/Semestar 7/distribuirani-sistemi/WeatherAlerts/aggregator-service/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ aggregator-service ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:3.3.6:run (default-cli) < test-compile @ aggregator-service <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.3.6:run (default-cli) @ aggregator-service ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.6)
+
+2025-12-24 01:48:05 [main] INFO  m.u.f.a.AggregatorServiceApplication - Starting AggregatorServiceApplication using Java 25.0.1 with PID 9356 (/Users/bobi/Home/Finki/Semestar 7/distribuirani-sistemi/WeatherAlerts/aggregator-service/target/classes started by bobi in /Users/bobi/Home/Finki/Semestar 7/distribuirani-sistemi/WeatherAlerts/aggregator-service)
+2025-12-24 01:48:05 [main] INFO  m.u.f.a.AggregatorServiceApplication - No active profile set, falling back to 1 default profile: "default"
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/Users/bobi/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.33/tomcat-embed-core-10.1.33.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2025-12-24 01:48:05 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-24 01:48:05 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-24 01:48:05 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2025-12-24 01:48:05 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-12-24 01:48:05 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 436 ms
+2025-12-24 01:48:05 [main] WARN  o.s.b.a.t.ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-12-24 01:48:06 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoints beneath base path '/actuator'
+2025-12-24 01:48:06 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-12-24 01:48:06 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-12-24 01:48:06 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#31973858:0/SimpleConnection@55c50f52 [delegate=amqp://weather@127.0.0.1:5672/, localPort=51570]
+2025-12-24 01:48:06 [main] INFO  m.u.f.a.AggregatorServiceApplication - Started AggregatorServiceApplication in 1.037 seconds (process running for 1.199)
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=66.0
+[AGGREGATOR] Sent alert: routingKey=alert.karposh.GREEN level=GREEN avg=66.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=104.0
+[AGGREGATOR] Sent alert: routingKey=alert.aerodrom.GREEN level=GREEN avg=104.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=61.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=82.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=40.0
+[AGGREGATOR] Sent alert: routingKey=alert.centar.GREEN level=GREEN avg=40.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=62.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=51.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=55.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=52.333333333333336
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=60.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=75.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=38.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=65.75
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=pm25, value=94.0
+[AGGREGATOR] Sent alert: routingKey=alert.cair.GREEN level=GREEN avg=94.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=98.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=72.2
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=45.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=50.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=56.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=61.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=118.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=64.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gazi_baba, metric=pm25, value=38.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm25, value=70.0
+[AGGREGATOR] Sent alert: routingKey=alert.gazi_baba.GREEN level=GREEN avg=38.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=57.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=62.833333333333336
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=49.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=57.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=52.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=55.75
+[AGGREGATOR] Sent alert: routingKey=alert.unknown_area.GREEN level=GREEN avg=70.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=70.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=58.6
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=135.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=71.33333333333333
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=43.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=58.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=60.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=69.83333333333333
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=58.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=59.75
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=61.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=68.57142857142857
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=57.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=59.44444444444444
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=butel, metric=pm25, value=16.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=butel, metric=pm25, value=46.0
+[AGGREGATOR] No change: area=butel metric=pm25 level=GREEN avg=31.0
+[AGGREGATOR] Sent alert: routingKey=alert.butel.GREEN level=GREEN avg=16.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=87.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=62.2
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=46.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=65.75
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=48.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=63.77777777777778
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=pm25, value=47.0
+[AGGREGATOR] No change: area=cair metric=pm25 level=GREEN avg=70.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=61.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=63.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=52.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=63.4
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=21.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=33.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=64.14285714285714
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=60.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=107.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=69.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=55.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=67.88888888888889
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm25, value=34.0
+[AGGREGATOR] No change: area=unknown_area metric=pm25 level=GREEN avg=52.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=88.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm25, value=4.0
+[AGGREGATOR] No change: area=unknown_area metric=pm25 level=GREEN avg=36.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=63.8
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm25, value=15.0
+[AGGREGATOR] No change: area=unknown_area metric=pm25 level=GREEN avg=30.75
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=kisela_voda, metric=pm25, value=28.0
+[AGGREGATOR] Sent alert: routingKey=alert.kisela_voda.GREEN level=GREEN avg=28.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=37.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=56.8
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=52.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=66.3
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=64.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=57.1
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=114.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=62.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=71.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=65.8
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=85.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=62.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=67.8
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=62.2
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=91.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=50.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=65.6
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=64.7
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=56.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=61.6
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm25, value=7.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=68.0
+[AGGREGATOR] No change: area=unknown_area metric=pm25 level=GREEN avg=26.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=62.6
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=94.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=70.7
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=75.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=66.6
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=110.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=75.9
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=149.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=85.1
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=69.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=pm25, value=13.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=83.3
+[AGGREGATOR] Sent alert: routingKey=alert.suto_orizari.GREEN level=GREEN avg=13.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=109.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gjorce_petrov, metric=pm25, value=9.0
+[AGGREGATOR] Sent alert: routingKey=alert.aerodrom.RED level=RED avg=109.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=88.0
+[AGGREGATOR] Sent alert: routingKey=alert.centar.RED level=RED avg=88.0
+[AGGREGATOR] Sent alert: routingKey=alert.gjorce_petrov.GREEN level=GREEN avg=9.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=128.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=117.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=102.5
+[AGGREGATOR] Sent alert: routingKey=alert.karposh.RED level=RED avg=128.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=108.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=108.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=109.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=108.66666666666667
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=103.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=107.25
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=102.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=102.33333333333333
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=100.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=101.75
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=101.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=106.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=104.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=pm10, value=216.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=116.0
+[AGGREGATOR] Sent alert: routingKey=alert.cair.RED level=RED avg=216.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=138.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=123.33333333333333
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=137.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=111.16666666666667
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=122.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=105.8
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=butel, metric=pm10, value=41.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm10, value=156.0
+[AGGREGATOR] Sent alert: routingKey=alert.unknown_area.RED level=RED avg=156.0
+[AGGREGATOR] Sent alert: routingKey=alert.butel.GREEN level=GREEN avg=41.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=85.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=107.42857142857143
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=90.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=103.16666666666667
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=154.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=113.25
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=171.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=112.85714285714286
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=40.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=102.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gazi_baba, metric=pm10, value=80.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=107.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=103.4
+[AGGREGATOR] Sent alert: routingKey=alert.gazi_baba.RED level=RED avg=80.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=131.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=126.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=115.125
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=107.16666666666667
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=124.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=116.11111111111111
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=73.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=102.28571428571429
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=butel, metric=pm10, value=122.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=124.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=114.44444444444444
+[AGGREGATOR] Sent alert: routingKey=alert.butel.RED level=RED avg=81.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=110.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=103.25
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=118.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=116.3
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=89.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=pm10, value=125.0
+[AGGREGATOR] No change: area=cair metric=pm10 level=RED avg=170.5
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=111.9
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=59.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=113.4
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=76.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=109.3
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm10, value=15.0
+[AGGREGATOR] No change: area=unknown_area metric=pm10 level=RED avg=85.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=113.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=104.33333333333333
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=kisela_voda, metric=pm10, value=63.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm10, value=407.0
+[AGGREGATOR] No change: area=unknown_area metric=pm10 level=RED avg=192.66666666666666
+[AGGREGATOR] Sent alert: routingKey=alert.kisela_voda.RED level=RED avg=63.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=100.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=103.9
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=169.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=116.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=119.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=112.9
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=88.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=110.9
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm10, value=34.0
+[AGGREGATOR] No change: area=unknown_area metric=pm10 level=RED avg=153.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm10, value=12.0
+[AGGREGATOR] No change: area=unknown_area metric=pm10 level=RED avg=124.8
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=109.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=110.9
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=149.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=120.9
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=269.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=135.6
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=107.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=101.8
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=149.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=141.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=136.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=114.2
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=126.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=116.7
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=162.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=107.6
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=147.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=139.1
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=153.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=141.3
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=180.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=146.9
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=121.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=147.2
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=100.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=113.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=9.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=pm10, value=25.0
+[AGGREGATOR] Sent alert: routingKey=alert.aerodrom.GREEN level=GREEN avg=9.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=7.5
+[AGGREGATOR] Sent alert: routingKey=alert.suto_orizari.GREEN level=GREEN avg=25.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=6.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gjorce_petrov, metric=pm10, value=18.0
+[AGGREGATOR] Sent alert: routingKey=alert.centar.GREEN level=GREEN avg=6.0
+[AGGREGATOR] Sent alert: routingKey=alert.gjorce_petrov.GREEN level=GREEN avg=18.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=10.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=8.333333333333334
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=6.0
+[AGGREGATOR] Sent alert: routingKey=alert.karposh.GREEN level=GREEN avg=6.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=11.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=8.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=5.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=7.333333333333333
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=6.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=7.75
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=8.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=7.5
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=7.2
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=8.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=6.666666666666667
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=temperature, value=9.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=11.0
+[AGGREGATOR] Sent alert: routingKey=alert.unknown_area.GREEN level=GREEN avg=9.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=8.4
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=4.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=7.666666666666667
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=7.166666666666667
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=temperature, value=5.0
+[AGGREGATOR] No change: area=unknown_area metric=temperature level=GREEN avg=7.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=7.142857142857143
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=6.75
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=9.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=7.2
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=7.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=5.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=7.285714285714286
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=temperature, value=6.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=7.125
+[AGGREGATOR] Sent alert: routingKey=alert.suto_orizari.GREEN level=GREEN avg=6.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=6.857142857142857
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=7.25
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=5.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=6.888888888888889
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=temperature, value=7.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=10.0
+[AGGREGATOR] Sent alert: routingKey=alert.cair.GREEN level=GREEN avg=7.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=7.25
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=temperature, value=5.0
+[AGGREGATOR] No change: area=unknown_area metric=temperature level=GREEN avg=6.333333333333333
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=9.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=7.1
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=5.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=7.0
+[AGGREGATOR] No change: area=unknown_area metric=temperature level=GREEN avg=6.25
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=kisela_voda, metric=temperature, value=6.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=5.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=7.0
+[AGGREGATOR] Sent alert: routingKey=alert.kisela_voda.GREEN level=GREEN avg=6.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=7.222222222222222
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=10.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=7.3
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=6.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=temperature, value=13.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=4.0
+[AGGREGATOR] No change: area=unknown_area metric=temperature level=GREEN avg=7.6
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=6.8
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=6.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=6.8
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=6.6
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=7.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=2.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=6.5
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=6.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=temperature, value=8.0
+[AGGREGATOR] No change: area=suto_orizari metric=temperature level=GREEN avg=7.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gjorce_petrov, metric=temperature, value=5.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=6.6
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=temperature, value=4.0
+[AGGREGATOR] Sent alert: routingKey=alert.gjorce_petrov.GREEN level=GREEN avg=5.0
+[AGGREGATOR] No change: area=unknown_area metric=temperature level=GREEN avg=7.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=8.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=6.2
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=92.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=80.0
+[AGGREGATOR] Sent alert: routingKey=alert.karposh.GREEN level=GREEN avg=92.0
+[AGGREGATOR] Sent alert: routingKey=alert.centar.GREEN level=GREEN avg=80.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=75.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=61.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=68.0
+[AGGREGATOR] Sent alert: routingKey=alert.aerodrom.GREEN level=GREEN avg=75.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=humidity, value=80.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=90.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=91.0
+[AGGREGATOR] Sent alert: routingKey=alert.cair.GREEN level=GREEN avg=80.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=72.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=76.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=76.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=70.66666666666667
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=80.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=77.33333333333333
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=62.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=81.33333333333333
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=humidity, value=92.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=54.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=66.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=59.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=65.0
+[AGGREGATOR] Sent alert: routingKey=alert.unknown_area.GREEN level=GREEN avg=92.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=87.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=82.75
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=humidity, value=71.0
+[AGGREGATOR] No change: area=unknown_area metric=humidity level=GREEN avg=81.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=kisela_voda, metric=humidity, value=84.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=71.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=80.4
+[AGGREGATOR] Sent alert: routingKey=alert.kisela_voda.GREEN level=GREEN avg=84.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=90.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=80.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=85.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=68.33333333333333
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=humidity, value=49.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=81.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=80.6
+[AGGREGATOR] No change: area=unknown_area metric=humidity level=GREEN avg=70.66666666666667
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=57.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=78.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=76.66666666666667
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=69.71428571428571
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=94.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=72.75
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=62.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=74.57142857142857
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=86.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=81.33333333333333
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=82.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=81.42857142857143
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=83.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=73.88888888888889
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=84.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=75.75
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=73.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=75.44444444444444
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=79.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=74.4
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=80.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=75.9
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=humidity, value=92.0
+[AGGREGATOR] No change: area=unknown_area metric=humidity level=GREEN avg=76.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=humidity, value=64.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=71.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=75.0
+[AGGREGATOR] Sent alert: routingKey=alert.suto_orizari.GREEN level=GREEN avg=64.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=64.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=79.25
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=99.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=81.44444444444444
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=71.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gjorce_petrov, metric=humidity, value=90.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=74.9
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=987.0
+[AGGREGATOR] Sent alert: routingKey=alert.gjorce_petrov.GREEN level=GREEN avg=90.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=93.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=76.2
+[AGGREGATOR] Sent alert: routingKey=alert.centar.GREEN level=GREEN avg=987.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=988.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.5
+[AGGREGATOR] Sent alert: routingKey=alert.aerodrom.GREEN level=GREEN avg=988.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=985.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=pressure, value=985.0
+[AGGREGATOR] Sent alert: routingKey=alert.cair.GREEN level=GREEN avg=985.0
+[AGGREGATOR] Sent alert: routingKey=alert.karposh.GREEN level=GREEN avg=985.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=982.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=985.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=984.5
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=984.6666666666666
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=986.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=988.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.6666666666666
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=986.0
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=985.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pressure, value=950.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pressure, value=951.0
+[AGGREGATOR] No change: area=unknown_area metric=pressure level=GREEN avg=950.5
+[AGGREGATOR] Sent alert: routingKey=alert.unknown_area.GREEN level=GREEN avg=950.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=988.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.75
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=kisela_voda, metric=pressure, value=960.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.6
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=986.0
+[AGGREGATOR] Sent alert: routingKey=alert.kisela_voda.GREEN level=GREEN avg=960.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=986.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.2
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=986.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.3333333333334
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.7142857142857
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=983.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.375
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.5555555555555
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pressure, value=983.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=986.0
+[AGGREGATOR] No change: area=unknown_area metric=pressure level=GREEN avg=961.3333333333334
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.1428571428571
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=985.0
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=985.75
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=986.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.6
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=989.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.375
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=985.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=984.0
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=985.6
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.3
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=983.0
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=985.1666666666666
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.3333333333334
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.3
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=pressure, value=970.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=989.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.4
+[AGGREGATOR] Sent alert: routingKey=alert.suto_orizari.GREEN level=GREEN avg=970.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=985.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=985.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.6
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=985.1428571428571
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=982.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.3
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gjorce_petrov, metric=pressure, value=943.0
+[AGGREGATOR] Sent alert: routingKey=alert.gjorce_petrov.GREEN level=GREEN avg=943.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=34.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=986.0
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=985.25
+[AGGREGATOR] Sent alert: routingKey=alert.centar.GREEN level=GREEN avg=34.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=48.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=989.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.6
+[AGGREGATOR] Sent alert: routingKey=alert.aerodrom.GREEN level=GREEN avg=48.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=pressure, value=972.0
+[AGGREGATOR] No change: area=suto_orizari metric=pressure level=GREEN avg=971.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=noise_dba, value=54.0
+[AGGREGATOR] Sent alert: routingKey=alert.cair.GREEN level=GREEN avg=54.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=31.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=39.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=68.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=51.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=41.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=47.666666666666664
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=43.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=36.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=38.333333333333336
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=46.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=68.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=noise_dba, value=64.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=45.75
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=48.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=46.2
+[AGGREGATOR] Sent alert: routingKey=alert.karposh.GREEN level=GREEN avg=64.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=32.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=43.833333333333336
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=kisela_voda, metric=noise_dba, value=28.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=42.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=45.6
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=noise_dba, value=68.0
+[AGGREGATOR] No change: area=karposh metric=noise_dba level=GREEN avg=66.0
+[AGGREGATOR] Sent alert: routingKey=alert.kisela_voda.GREEN level=GREEN avg=28.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=noise_dba, value=43.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=45.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=45.5
+[AGGREGATOR] Sent alert: routingKey=alert.unknown_area.GREEN level=GREEN avg=43.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=41.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=43.42857142857143
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=73.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=49.42857142857143
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=67.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=51.625
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=noise_dba, value=50.0
+[AGGREGATOR] No change: area=karposh metric=noise_dba level=GREEN avg=60.666666666666664
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=44.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=50.77777777777778
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=38.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=42.75
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=39.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=42.333333333333336
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=noise_dba, value=52.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=67.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=44.8
+[AGGREGATOR] No change: area=karposh metric=noise_dba level=GREEN avg=58.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=36.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=49.3
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=34.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=noise_dba, value=37.0
+[AGGREGATOR] No change: area=karposh metric=noise_dba level=GREEN avg=54.2
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=43.4
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=40.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=45.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=44.3
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=50.4
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=noise_dba, value=67.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=68.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=47.5
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=noise_dba, value=25.0
+[AGGREGATOR] No change: area=karposh metric=noise_dba level=GREEN avg=49.333333333333336
+[AGGREGATOR] Sent alert: routingKey=alert.suto_orizari.GREEN level=GREEN avg=67.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=noise_dba, value=44.0
+[AGGREGATOR] No change: area=karposh metric=noise_dba level=GREEN avg=48.57142857142857
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gjorce_petrov, metric=noise_dba, value=31.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=37.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=47.3
+[AGGREGATOR] Sent alert: routingKey=alert.gjorce_petrov.GREEN level=GREEN avg=31.0
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=36.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=44.3
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=45.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=47.7
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=34.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=46.8
+2025-12-24 01:48:06 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=noise_dba, value=34.0
+[AGGREGATOR] No change: area=suto_orizari metric=noise_dba level=GREEN avg=50.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=66.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=68.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=104.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=66.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=61.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=68.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=40.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=82.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=55.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=84.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=62.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=81.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=60.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=69.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=38.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=67.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=pm25, value=94.0
+[AGGREGATOR] No change: area=cair metric=pm25 level=GREEN avg=78.33333333333333
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=98.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=73.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=45.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=77.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=56.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=68.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=48.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=118.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=71.8
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=83.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=57.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=79.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=52.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=66.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm25, value=70.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=49.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=58.3
+[AGGREGATOR] No change: area=unknown_area metric=pm25 level=GREEN avg=33.333333333333336
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=43.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=74.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=135.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=69.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=58.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=66.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=61.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=65.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=58.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=69.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=70.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=66.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=57.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=60.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=butel, metric=pm25, value=46.0
+[AGGREGATOR] No change: area=butel metric=pm25 level=GREEN avg=36.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=butel, metric=pm25, value=16.0
+[AGGREGATOR] No change: area=butel metric=pm25 level=GREEN avg=31.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=pm25, value=47.0
+[AGGREGATOR] No change: area=cair metric=pm25 level=GREEN avg=70.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=61.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=65.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=21.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=46.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=62.6
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=63.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gazi_baba, metric=pm25, value=38.0
+[AGGREGATOR] No change: area=gazi_baba metric=pm25 level=GREEN avg=38.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=87.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=62.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=33.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=61.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=55.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=62.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm25, value=34.0
+[AGGREGATOR] No change: area=unknown_area metric=pm25 level=GREEN avg=33.42857142857143
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=107.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=68.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm25, value=4.0
+[AGGREGATOR] No change: area=unknown_area metric=pm25 level=GREEN avg=29.75
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=52.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=61.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=kisela_voda, metric=pm25, value=28.0
+[AGGREGATOR] No change: area=kisela_voda metric=pm25 level=GREEN avg=28.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=88.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=63.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=52.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=66.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=50.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=64.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=64.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=59.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=62.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=65.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm25, value=15.0
+[AGGREGATOR] No change: area=unknown_area metric=pm25 level=GREEN avg=28.11111111111111
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=114.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=64.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=37.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=62.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=85.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=62.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm25, value=7.0
+[AGGREGATOR] No change: area=unknown_area metric=pm25 level=GREEN avg=26.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=71.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=65.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=94.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=65.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=91.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=70.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=110.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=75.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=68.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=62.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm25, value=56.0
+[AGGREGATOR] No change: area=aerodrom metric=pm25 level=GREEN avg=63.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm25, value=75.0
+[AGGREGATOR] No change: area=karposh metric=pm25 level=GREEN avg=66.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=109.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=115.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=pm25, value=13.0
+[AGGREGATOR] No change: area=suto_orizari metric=pm25 level=GREEN avg=13.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=109.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=110.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=149.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=85.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=128.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=106.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm25, value=69.0
+[AGGREGATOR] No change: area=centar metric=pm25 level=GREEN avg=83.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gjorce_petrov, metric=pm25, value=9.0
+[AGGREGATOR] No change: area=gjorce_petrov metric=pm25 level=GREEN avg=9.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=88.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=150.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=108.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=109.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=pm10, value=216.0
+[AGGREGATOR] No change: area=cair metric=pm10 level=RED avg=185.66666666666666
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=102.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=152.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=117.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=147.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=101.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=110.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=103.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=108.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=100.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=142.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=104.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=113.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm10, value=156.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=122.0
+[AGGREGATOR] No change: area=unknown_area metric=pm10 level=RED avg=130.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=127.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=138.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=116.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=137.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=113.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=butel, metric=pm10, value=41.0
+[AGGREGATOR] No change: area=butel metric=pm10 level=RED avg=68.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=90.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=122.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=171.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=124.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=126.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=116.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=40.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=112.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=85.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=111.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=73.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=109.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=124.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=110.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=124.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=121.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=118.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=115.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=154.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=113.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=110.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=108.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gazi_baba, metric=pm10, value=80.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=butel, metric=pm10, value=122.0
+[AGGREGATOR] No change: area=gazi_baba metric=pm10 level=RED avg=80.0
+[AGGREGATOR] No change: area=butel metric=pm10 level=RED avg=81.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=89.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=111.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=107.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=109.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=131.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=116.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=pm10, value=125.0
+[AGGREGATOR] No change: area=cair metric=pm10 level=RED avg=170.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=59.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=113.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=76.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=110.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm10, value=15.0
+[AGGREGATOR] No change: area=unknown_area metric=pm10 level=RED avg=113.57142857142857
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=113.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=110.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm10, value=407.0
+[AGGREGATOR] No change: area=unknown_area metric=pm10 level=RED avg=150.25
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=kisela_voda, metric=pm10, value=63.0
+[AGGREGATOR] No change: area=kisela_voda metric=pm10 level=RED avg=63.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=169.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=116.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=100.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=103.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=119.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=112.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm10, value=34.0
+[AGGREGATOR] No change: area=unknown_area metric=pm10 level=RED avg=137.33333333333334
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=149.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=120.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=88.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=110.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pm10, value=12.0
+[AGGREGATOR] No change: area=unknown_area metric=pm10 level=RED avg=124.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=136.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=113.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=107.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=101.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=109.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=114.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=269.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=135.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=149.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=141.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=100.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=114.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=147.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=139.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=180.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=144.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pm10, value=126.0
+[AGGREGATOR] No change: area=aerodrom metric=pm10 level=RED avg=113.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pm10, value=162.0
+[AGGREGATOR] No change: area=karposh metric=pm10 level=RED avg=107.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=pm10, value=25.0
+[AGGREGATOR] No change: area=suto_orizari metric=pm10 level=GREEN avg=25.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gjorce_petrov, metric=pm10, value=18.0
+[AGGREGATOR] No change: area=gjorce_petrov metric=pm10 level=GREEN avg=18.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=121.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=145.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pm10, value=153.0
+[AGGREGATOR] No change: area=centar metric=pm10 level=RED avg=147.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=7.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=9.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=6.6
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=6.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=5.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=6.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=5.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=5.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=temperature, value=9.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=8.0
+[AGGREGATOR] No change: area=unknown_area metric=temperature level=GREEN avg=7.285714285714286
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=7.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=11.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=6.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=10.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=7.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=7.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=7.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=8.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=6.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=temperature, value=5.0
+[AGGREGATOR] No change: area=unknown_area metric=temperature level=GREEN avg=7.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=4.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=6.5
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=6.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=11.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=7.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=7.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=9.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=7.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=7.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=6.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=suto_orizari metric=temperature level=GREEN avg=6.666666666666667
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=6.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=5.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=7.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=7.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=5.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=7.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=cair metric=temperature level=GREEN avg=7.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=unknown_area metric=temperature level=GREEN avg=6.888888888888889
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=9.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=7.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=10.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=7.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=7.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=temperature, value=5.0
+[AGGREGATOR] No change: area=unknown_area metric=temperature level=GREEN avg=6.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=kisela_voda, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=kisela_voda metric=temperature level=GREEN avg=6.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=10.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=7.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=temperature, value=7.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=4.0
+[AGGREGATOR] No change: area=karposh metric=temperature level=GREEN avg=7.2
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=7.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=7.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=5.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=6.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=5.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=7.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=6.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=6.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=7.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=temperature, value=13.0
+[AGGREGATOR] No change: area=unknown_area metric=temperature level=GREEN avg=7.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=2.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=6.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=6.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=temperature, value=7.0
+[AGGREGATOR] No change: area=aerodrom metric=temperature level=GREEN avg=6.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=temperature, value=4.0
+[AGGREGATOR] No change: area=unknown_area metric=temperature level=GREEN avg=7.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=temperature, value=8.0
+[AGGREGATOR] No change: area=centar metric=temperature level=GREEN avg=6.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gjorce_petrov, metric=temperature, value=5.0
+[AGGREGATOR] No change: area=gjorce_petrov metric=temperature level=GREEN avg=5.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=80.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=74.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=temperature, value=8.0
+[AGGREGATOR] No change: area=suto_orizari metric=temperature level=GREEN avg=7.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=75.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=77.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=92.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=82.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=61.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=76.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=90.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=82.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=humidity, value=80.0
+[AGGREGATOR] No change: area=cair metric=humidity level=GREEN avg=80.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=72.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=73.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=80.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=73.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=76.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=78.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=humidity, value=92.0
+[AGGREGATOR] No change: area=unknown_area metric=humidity level=GREEN avg=79.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=62.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=79.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=kisela_voda, metric=humidity, value=84.0
+[AGGREGATOR] No change: area=kisela_voda metric=humidity level=GREEN avg=84.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=81.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=75.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=85.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=80.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=57.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=54.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=74.9
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=77.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=59.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=75.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=71.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=80.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=87.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=90.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=75.5
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=80.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=humidity, value=49.0
+[AGGREGATOR] No change: area=unknown_area metric=humidity level=GREEN avg=74.16666666666667
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=humidity, value=71.0
+[AGGREGATOR] No change: area=unknown_area metric=humidity level=GREEN avg=73.71428571428571
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=62.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=74.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=82.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=81.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=78.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=74.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=94.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=75.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=84.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=74.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=86.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=81.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=73.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=75.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=80.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=75.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=83.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=75.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=humidity, value=64.0
+[AGGREGATOR] No change: area=suto_orizari metric=humidity level=GREEN avg=64.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=99.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=93.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=75.8
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=83.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=71.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=75.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=humidity, value=92.0
+[AGGREGATOR] No change: area=unknown_area metric=humidity level=GREEN avg=76.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=humidity, value=79.0
+[AGGREGATOR] No change: area=aerodrom metric=humidity level=GREEN avg=76.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gjorce_petrov, metric=humidity, value=90.0
+[AGGREGATOR] No change: area=gjorce_petrov metric=humidity level=GREEN avg=90.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=humidity, value=64.0
+[AGGREGATOR] No change: area=karposh metric=humidity level=GREEN avg=83.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=988.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=pressure, value=985.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=humidity, value=71.0
+[AGGREGATOR] No change: area=centar metric=humidity level=GREEN avg=74.9
+[AGGREGATOR] No change: area=cair metric=pressure level=GREEN avg=985.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=985.0
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=985.2222222222222
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pressure, value=950.0
+[AGGREGATOR] No change: area=unknown_area metric=pressure level=GREEN avg=958.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=986.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=988.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pressure, value=951.0
+[AGGREGATOR] No change: area=unknown_area metric=pressure level=GREEN avg=957.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=985.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=986.0
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=985.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=982.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=984.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=988.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=kisela_voda, metric=pressure, value=960.0
+[AGGREGATOR] No change: area=kisela_voda metric=pressure level=GREEN avg=960.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=985.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=986.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=986.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.1
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=985.0
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=985.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=989.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=pressure, value=983.0
+[AGGREGATOR] No change: area=unknown_area metric=pressure level=GREEN avg=961.3333333333334
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=983.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=985.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=986.0
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=985.2
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=984.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=986.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=987.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=985.0
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=985.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=986.0
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=985.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=pressure, value=983.0
+[AGGREGATOR] No change: area=karposh metric=pressure level=GREEN avg=985.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=989.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=pressure, value=970.0
+[AGGREGATOR] No change: area=suto_orizari metric=pressure level=GREEN avg=970.6666666666666
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=985.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=985.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=pressure, value=982.0
+[AGGREGATOR] No change: area=centar metric=pressure level=GREEN avg=984.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=pressure, value=989.0
+[AGGREGATOR] No change: area=aerodrom metric=pressure level=GREEN avg=987.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=48.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=44.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=34.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=46.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gjorce_petrov, metric=pressure, value=943.0
+[AGGREGATOR] No change: area=gjorce_petrov metric=pressure level=GREEN avg=943.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=31.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=44.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=pressure, value=972.0
+[AGGREGATOR] No change: area=suto_orizari metric=pressure level=GREEN avg=971.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=cair, metric=noise_dba, value=54.0
+[AGGREGATOR] No change: area=cair metric=noise_dba level=GREEN avg=54.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=41.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=45.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=noise_dba, value=64.0
+[AGGREGATOR] No change: area=karposh metric=noise_dba level=GREEN avg=50.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=68.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=45.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=68.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=46.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=36.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=46.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=kisela_voda, metric=noise_dba, value=28.0
+[AGGREGATOR] No change: area=kisela_voda metric=noise_dba level=GREEN avg=28.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=43.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=42.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=48.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=47.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=32.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=44.1
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=45.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=42.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=42.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=43.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=41.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=44.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=73.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=46.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=noise_dba, value=68.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=noise_dba, value=50.0
+[AGGREGATOR] No change: area=karposh metric=noise_dba level=GREEN avg=52.44444444444444
+[AGGREGATOR] No change: area=karposh metric=noise_dba level=GREEN avg=52.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=unknown_area, metric=noise_dba, value=43.0
+[AGGREGATOR] No change: area=unknown_area metric=noise_dba level=GREEN avg=43.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=38.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=44.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=noise_dba, value=52.0
+[AGGREGATOR] No change: area=karposh metric=noise_dba level=GREEN avg=51.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=39.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=41.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=67.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=49.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=45.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=49.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=44.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=50.2
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=37.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=41.8
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=67.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=43.7
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=36.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=50.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=noise_dba, value=37.0
+[AGGREGATOR] No change: area=karposh metric=noise_dba level=GREEN avg=47.9
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=68.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=47.4
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=37.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=50.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=noise_dba, value=67.0
+[AGGREGATOR] No change: area=suto_orizari metric=noise_dba level=GREEN avg=56.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=40.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=44.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=noise_dba, value=44.0
+[AGGREGATOR] No change: area=karposh metric=noise_dba level=GREEN avg=47.3
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=34.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=46.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=aerodrom, metric=noise_dba, value=36.0
+[AGGREGATOR] No change: area=aerodrom metric=noise_dba level=GREEN avg=44.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=karposh, metric=noise_dba, value=25.0
+[AGGREGATOR] No change: area=karposh metric=noise_dba level=GREEN avg=44.6
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=gjorce_petrov, metric=noise_dba, value=31.0
+[AGGREGATOR] No change: area=gjorce_petrov metric=noise_dba level=GREEN avg=31.0
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=suto_orizari, metric=noise_dba, value=34.0
+[AGGREGATOR] No change: area=suto_orizari metric=noise_dba level=GREEN avg=50.5
+2025-12-24 01:49:07 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  m.u.f.a.listener.ReadingListener - Received reading: area=centar, metric=noise_dba, value=45.0
+[AGGREGATOR] No change: area=centar metric=noise_dba level=GREEN avg=46.8
+2025-12-24 01:49:27 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-12-24 01:49:28 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.

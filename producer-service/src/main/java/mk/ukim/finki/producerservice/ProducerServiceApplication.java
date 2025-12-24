@@ -3,6 +3,7 @@ package mk.ukim.finki.producerservice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import mk.ukim.finki.producerservice.config.PulseEcoProperties;
 
@@ -18,10 +19,12 @@ import mk.ukim.finki.producerservice.config.PulseEcoProperties;
  * Key Features:
  * - @EnableScheduling: Enables scheduled tasks (like periodic data fetching)
  * - @EnableConfigurationProperties: Allows reading configuration from application.properties
+ * - @EnableRetry: Enables automatic retry for @Retryable methods
  */
 @SpringBootApplication
 @EnableScheduling  // Allows @Scheduled methods to run (e.g., CityProducerScheduler)
 @EnableConfigurationProperties(PulseEcoProperties.class)  // Loads pulseeco.* properties
+@EnableRetry  // Enables @Retryable annotation for automatic retries
 public class ProducerServiceApplication {
 
     /**
