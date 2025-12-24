@@ -219,6 +219,7 @@ public class LocationController {
         // Create and return CityMeasurement
         return new CityMeasurement(
                 city.toUpperCase(),
+                "unknown",
                 raw.getSensorId(),
                 raw.getPosition(),
                 ts,

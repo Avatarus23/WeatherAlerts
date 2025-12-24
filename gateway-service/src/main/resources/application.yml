@@ -1,8 +1,58 @@
+server:
+  port: 8081
+  
 spring:
   application:
     name: gateway-service
   rabbitmq:
-    host: localhost
-    port: 5672
-    username: weather
-    password: weather123
+    # Connection settings with environment variable support
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:weather}
+    password: ${RABBITMQ_PASS:weather123}
+    virtual-host: ${RABBITMQ_VHOST:/}
+    
+    # Publisher confirms - ensures messages are delivered
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    
+    # Listener configuration
+    listener:
+      simple:
+        # Acknowledge mode: auto = acknowledge after successful processing
+        acknowledge-mode: auto
+        # Retry configuration
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 1000ms
+          multiplier: 2.0
+          max-interval: 10000ms
+        # Prefetch - how many unacknowledged messages per consumer
+        prefetch: 10
+        # Concurrency - number of concurrent consumers
+        concurrency: 1
+        max-concurrency: 5
+
+# Actuator configuration for monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,rabbit,loggers
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+      enabled: true
+  rabbitmq:
+    enabled: true
+
+# Logging configuration
+logging:
+  level:
+    mk.ukim.finki.gatewayservice: INFO
+    org.springframework.amqp: INFO
+    org.springframework.web.socket: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
